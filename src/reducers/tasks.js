@@ -3,7 +3,8 @@ import { ADD_TASK, REMOVE_TASK, TOGGLE_TASK, RECEIVE_TASKS } from "../actions/ac
 const initialState = [
     {id: 'zcejlds6zpkebjjvjr', task: 'Walk the dog', completed: false},
     {id: 'ums8j0t5559kebjkoho', task: 'Buy groceries', completed: false},
-    {id: 's6z0t5zpkebj948iyf9', task: 'Be super cool', completed: true}
+    {id: 'Whosdy0tsyebjuhsEho', task: 'Pour myself a drink', completed: false},
+    {id: 's6z0t5zpkebj948iyf9', task: 'Be awesome', completed: true}
 ]
 
 export default function tasks(state = initialState, action) {

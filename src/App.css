@@ -176,11 +176,21 @@ ul{
     width: 60%;
   }
 
-  .sideNav-info a{
+  .links a{
     color: rgba(255, 255, 255, 0.5);
   }
 
-  .sideNav-info a:hover{
+  .logo-link{
+    color: white;
+    text-decoration: none;
+  }
+
+  .logo-link:hover{
+    color: white;
+    text-decoration: none;
+  }
+
+  .links a:hover{
     color: white;
     text-decoration: none;
   }

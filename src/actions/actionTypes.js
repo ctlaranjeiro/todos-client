@@ -2,6 +2,7 @@ const ADD_TASK = "ADD_TASK";
 const REMOVE_TASK = "REMOVE_TASK";
 const TOGGLE_TASK = "TOGGLE_TASK";
 const RECEIVE_TASKS = "RECEIVE_TASKS";
+const LOGIN_USER = "LOGIN_USER";
 const SET_LOGGED_USER = "SET_LOGGED_USER";
 
 export {
@@ -9,5 +10,6 @@ export {
     REMOVE_TASK,
     TOGGLE_TASK,
     RECEIVE_TASKS,
+    LOGIN_USER,
     SET_LOGGED_USER
 };

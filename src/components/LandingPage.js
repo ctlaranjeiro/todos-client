@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import BasicTodos from './DefaultTodoList';
 import Navigation from './Navigation';
+import BasicTodos from './DefaultTodoList';
+
 
 class LandingPage extends Component {
     render(){
