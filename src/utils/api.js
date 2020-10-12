@@ -3,7 +3,7 @@ import axios from 'axios';
 const backendUrl = process.env.REACT_APP_API_URL;
 
 const service = axios.create({
-    baseURL: `https://todos-app-server.herokuapp.com/api`,
+    baseURL: `${backendUrl}/api`,
     withCredentials: true
 })
 
