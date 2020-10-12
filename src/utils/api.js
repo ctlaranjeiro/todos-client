@@ -2,8 +2,13 @@ import axios from 'axios';
 
 const backendUrl = process.env.REACT_APP_API_URL;
 
+const service = axios.create({
+    baseURL: `https://todos-app-server.herokuapp.com/api`,
+    withCredentials: true
+})
+
 export const login = (username, password) => {
-    return axios.post(`${backendUrl}/api/login`, { username, password })
+    return service.post('/login' , { username, password })
         .then(responseFromAPI => {
             localStorage.setItem("loggedin", true);
             return responseFromAPI.data;
@@ -11,9 +16,11 @@ export const login = (username, password) => {
 }
 
 export const loggedUser = () => {
-    return axios.get(`${backendUrl}/api/loggedin`)
+    return service.get('/isloggedin')
         .then(responseFromAPI => {
-            localStorage.setItem("loggedin", true);
+            if (responseFromAPI.data.username) {
+                localStorage.setItem("loggedin", true);
+            }
             return responseFromAPI.data;
         })
 }

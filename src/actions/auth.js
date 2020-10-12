@@ -26,7 +26,7 @@ export function loginOnAPI(username, password) {
     }
 }
 
-export function loggedUserOnAPI(username, password) {
+export function loggedUserOnAPI() {
     return dispatch => {
         return loggedUser().then((responseFromAPI) => {
             // console.log('responseFormAPI:', responseFromAPI);

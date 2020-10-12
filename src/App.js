@@ -9,12 +9,12 @@ import { loggedUserOnAPI } from './actions/auth';
 
 
 class App extends Component {
-  componentDidMount() {
-    this.props.handleLoggedIn();
-    //   .then(() => {
-    //   localStorage.setItem("loggedin", true);
-    // });
-  }
+  // componentDidMount() {
+  //   this.props.handleLoggedIn();
+  //   //   .then(() => {
+  //   //   localStorage.setItem("loggedin", true);
+  //   // });
+  // }
 
   render() {
     return (
