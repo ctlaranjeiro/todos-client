@@ -24,3 +24,10 @@ export const loggedUser = () => {
             return responseFromAPI.data;
         })
 }
+
+export const logout = () => {
+    return service.post('/logout')
+        .then(responseFromAPI => {
+            return responseFromAPI.data;
+        })
+}

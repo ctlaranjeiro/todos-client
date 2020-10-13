@@ -15,7 +15,7 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-.top-nav-style span{
+.top-nav-style .greeting{
   color: white;
 }
 
@@ -25,6 +25,25 @@
 
 .sideNav-info{
   display: none;
+}
+
+.btn-nav{
+  width: 30%;
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.5);
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 8px;
+}
+
+.btn-nav:hover{
+  background-color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0);
+  color: white;
+  text-decoration: none;
 }
 
 .content-container{
@@ -133,6 +152,11 @@ ul{
   padding: 5px;
 }
 
+.logout-btn{
+  width: 30%;
+  margin-top: 10px;
+}
+
 
 
 /* MEDIA QUERIES */
@@ -155,7 +179,7 @@ ul{
   .sideNav-flex{
     display: flex;
     flex-direction: column;
-    background-color: violet;
+    /* background-color: violet; */
     width: 100%;
     height: 100%;
     align-items: center;
@@ -171,9 +195,30 @@ ul{
   }
 
   .sideNav-info p{
+    /* background-color: tomato; */
     margin: 0;
     margin-top: 10px;
     width: 60%;
+    margin-bottom: 20px;
+  }
+
+  .btn-nav{
+    width: 100%;
+    font-size: 0.9em;
+    padding: 5px;
+    align-self: center;
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 5px;
+  }
+
+  .logout-btn{
+    width: 45%;
+    margin-top: 20px;
+  }
+
+  .btn-size{
+    width: 33%;
   }
 
   .links a{

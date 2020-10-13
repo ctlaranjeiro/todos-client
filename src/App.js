@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LandingPage from './components/LandingPage';
 import LoginPage from './components/LoginPage';
@@ -10,22 +10,41 @@ import { loggedUserOnAPI } from './actions/auth';
 
 class App extends Component {
   componentDidMount() {
-    this.props.handleLoggedIn();
-    //   .then(() => {
-    //   localStorage.setItem("loggedin", true);
-    // });
+    this.props.handleLoggedIn()
+      .then(() => {
+      localStorage.setItem("loggedin", true);
+    });
   }
+
+  // componentDidUpdate() {
+  //   this.props.handleLoggedIn()
+  //     .then(() => {
+  //     localStorage.setItem("loggedin", true);
+  //   });
+  // }
 
   render() {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/' render={(props) => <LandingPage {...props} />} />
-          <Route path='/login' render={(props) => <LoginPage {...props} />} />
-          <Route path='/:username' render={(props) => <UserPage {...props} />} />
+          {/* <Route exact path='/' render={(props) => <LandingPage {...props} />} /> */}
+          <Route exact path='/' render={(props) => {
+            if (this.props.loggedUser.username) {
+              return <UserPage {...props} />
+            } else {
+              return <LandingPage {...props} />
+            }
+          }} />
+          <Route exact path='/login' render={(props) => <LoginPage {...props} />} />
         </Switch>
       </div>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    loggedUser: state.loggedUser
   }
 }
 
@@ -33,4 +52,4 @@ const mapDispatchToProps = dispatch => ({
   handleLoggedIn: () => dispatch(loggedUserOnAPI())
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

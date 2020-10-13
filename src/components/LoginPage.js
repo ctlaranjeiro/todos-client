@@ -24,18 +24,13 @@ class LoginPage extends Component{
         let password = this.state.password
 
         // using Redux to update state with the function below
-        this.props.handleLogin(username, password);
-            // .then(() => {
-            //     localStorage.setItem("loggedin", true);
-            // });
+        this.props.handleLogin(username, password).then(() => {
+            localStorage.setItem("loggedin", true);
 
-        if(this.props.loggedUser){
             this.props.history.push(`/`);
-        } else{
-            console.log('something went wrong with login');
-        }
-
-        this.setState({username: '', password: ''})
+    
+            this.setState({username: '', password: ''})
+        })
     }
 
 

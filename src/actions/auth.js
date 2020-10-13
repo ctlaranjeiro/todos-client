@@ -1,5 +1,5 @@
-import { LOGIN_USER, SET_LOGGED_USER } from "./actionTypes";
-import { login, loggedUser } from '../utils/api';
+import { LOGIN_USER, SET_LOGGED_USER, LOGOUT_USER } from "./actionTypes";
+import { login, loggedUser, logout } from '../utils/api';
 
 /* Actions */
 export function loginUserAction(user) {
@@ -16,6 +16,13 @@ export function setLoggedUserAction(user) {
     }
 }
 
+export function logoutUserAction() {
+    return {
+        type: LOGOUT_USER
+    }
+}
+
+
 /* Handlers */
 export function loginOnAPI(username, password) {
     return dispatch => {
@@ -31,6 +38,15 @@ export function loggedUserOnAPI() {
         return loggedUser().then((responseFromAPI) => {
             // console.log('responseFormAPI:', responseFromAPI);
             dispatch(setLoggedUserAction(responseFromAPI))
+        })
+    }
+}
+
+export function logoutUserOnAPI() {
+    return dispatch => {
+        return logout().then(() => {
+            localStorage.clear();
+            dispatch(logoutUserAction())
         })
     }
 }
