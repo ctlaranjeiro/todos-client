@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginOnAPI } from '../actions/auth';
+import { signupOnAPI } from '../actions/auth';
 import Navigation from './Navigation';
 
 
@@ -24,7 +24,7 @@ class LoginPage extends Component{
         let password = this.state.password
 
         // using Redux to update state with the function below
-        this.props.handleLogin(username, password).then(() => {
+        this.props.handleSignup(username, password).then(() => {
             this.props.history.push(`/`);
             this.setState({username: '', password: ''})
         })
@@ -36,11 +36,11 @@ class LoginPage extends Component{
             <div className="main-container">
                 <Navigation />
                 <div className="content-container flex-column">
-                    <h1>Login Page</h1>
+                    <h1>Signup Page</h1>
                     <form onSubmit={this.handleFormSubmit}>
                         <input name="username" type='text' placeholder="username" value={this.state.username} onChange={this.handleChange} />
                         <input name="password" type='password' placeholder="password" value={this.state.password} onChange={this.handleChange} />
-                        <input type="submit" value="Login" />
+                        <input type="submit" value="Signup" />
                     </form>
                 </div>
             </div>
@@ -48,9 +48,8 @@ class LoginPage extends Component{
     }
 }
 
-
 const mapDispatchToProps = dispatch => ({
-    handleLogin: (username, password) => dispatch(loginOnAPI(username, password))
+    handleSignup: (username, password) => dispatch(signupOnAPI(username, password))
 });
 
 export default connect(null, mapDispatchToProps)(LoginPage);

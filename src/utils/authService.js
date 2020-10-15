@@ -1,35 +1,42 @@
 import axios from 'axios';
 
+const backendUrl = process.env.REACT_APP_API_URL;
 
-class AuthService {
-    constructor() {
-        let service = axios.create({
-            baseURL: `${process.env.REACT_APP_API_URL}/api`,
-            withCredentials: true,
-            crossdomain: true
+const service = axios.create({
+    baseURL: `${backendUrl}/api`,
+    withCredentials: true
+})
+
+export const signup = (username, password) => {
+    return service.post('/signup' , { username, password })
+        .then(responseFromAPI => {
+            localStorage.setItem("loggedin", true);
+            return responseFromAPI.data;
         })
-        this.service = service;
-    }
-
-    login = (username, password) => {
-        return this.service.post('/login' , { username, password, "grant_type": "password" })
-            .then(responseFromAPI => {
-                localStorage.setItem("loggedin", true);
-                return responseFromAPI.data;
-            })
-        
-        }
-
-        loggedUser = () => {
-            return this.service.get('/loggedin')
-                .then(responseFromAPI => {
-                    if (responseFromAPI.data.username) {
-                        localStorage.setItem("loggedin", true);
-                    }
-                    return responseFromAPI.data;
-                })
-        }
-
 }
 
-export default AuthService;
+export const login = (username, password) => {
+    return service.post('/login' , { username, password })
+        .then(responseFromAPI => {
+            localStorage.setItem("loggedin", true);
+            return responseFromAPI.data;
+        })
+}
+
+export const loggedUser = () => {
+    return service.get('/isloggedin')
+        .then(responseFromAPI => {
+            if (responseFromAPI.data.username) {
+                localStorage.setItem("loggedin", true);
+            }
+            return responseFromAPI.data;
+        })
+}
+
+export const logout = () => {
+    return service.post('/logout')
+        .then(responseFromAPI => {
+            localStorage.clear();
+            return responseFromAPI.data;
+        })
+}

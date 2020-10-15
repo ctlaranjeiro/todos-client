@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LandingPage from './components/LandingPage';
 import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
 import UserPage from './components/UserPage';
 import { loggedUserOnAPI } from './actions/auth';
 
@@ -36,6 +37,7 @@ class App extends Component {
             }
           }} />
           <Route exact path='/login' render={(props) => <LoginPage {...props} />} />
+          <Route exact path='/signup' render={(props) => <SignupPage {...props} />} />
         </Switch>
       </div>
     );

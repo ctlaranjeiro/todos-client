@@ -6,8 +6,11 @@ import AddTask from './AddTask';
 import styled from 'styled-components';
 
 const Div = styled.div`
-  background-color: ${props => props.listColor};
-  border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: ${props => props.bgColor};
+    border-radius: 50%;
+    margin-right: 5px;
 `;
 
 class BasicTodos extends Component {
@@ -60,12 +63,14 @@ class BasicTodos extends Component {
 
     render() {
         return(
-            <div className="center-list">
-                <div className="list-title">
-                    <Div listColor={this.props.lists.color}></Div>
-                    <h3>{this.props.listName}</h3>
+            <div className="content-container flex-column">
+                <div className="center-list">
+                    <div className="list-title">
+                        <Div bgColor={this.props.currentList.color}></Div>
+                        <h3>{this.props.currentList.listName}</h3>
+                    </div>
+                    <hr />
                 </div>
-                <hr />
             </div>
         )
     }

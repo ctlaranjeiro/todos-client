@@ -7,26 +7,24 @@ const service = axios.create({
     withCredentials: true
 })
 
-export const login = (username, password) => {
-    return service.post('/login' , { username, password })
+
+export const addTask = (task, userId, listId) => {
+    return service.post('/task' , { task, userId, listId })
         .then(responseFromAPI => {
-            localStorage.setItem("loggedin", true);
             return responseFromAPI.data;
         })
 }
 
-export const loggedUser = () => {
-    return service.get('/isloggedin')
+
+export const updateTask = (id, task, completed) => {
+    return service.put(`/task/${id}` , { task, completed })
         .then(responseFromAPI => {
-            if (responseFromAPI.data.username) {
-                localStorage.setItem("loggedin", true);
-            }
             return responseFromAPI.data;
         })
 }
 
-export const logout = () => {
-    return service.post('/logout')
+export const deleteTask = (id) => {
+    return service.delete(`/task/${id}`)
         .then(responseFromAPI => {
             return responseFromAPI.data;
         })

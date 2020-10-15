@@ -1,4 +1,12 @@
-import { ADD_TASK, REMOVE_TASK, TOGGLE_TASK, RECEIVE_TASKS } from "../actions/actionTypes";
+import {
+    ADD_TASK,
+    REMOVE_TASK,
+    TOGGLE_TASK,
+    RECEIVE_TASKS,
+    ADD_TASK_API,
+    UPDATE_TASK_API,
+    DELETE_TASK_API
+} from "../actions/actionTypes";
 
 const initialState = [
     {id: 'zcejlds6zpkebjjvjr', task: 'Walk the dog', completed: false},
@@ -19,6 +27,14 @@ export default function tasks(state = initialState, action) {
             return state.map(task => 
                 task.id === action.task.id ? { ...task, completed: task.completed } : task
                 );
+        case ADD_TASK_API:
+            return state.concat(action.task);
+        case UPDATE_TASK_API:
+            return state.map(task => 
+                task.id === action.task.id ? { ...task, completed: task.completed } : task
+                );
+        case DELETE_TASK_API:
+            return state.filter((task) => task.id !== action.id);
         default:
             return state;
     }

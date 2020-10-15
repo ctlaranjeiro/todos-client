@@ -18,7 +18,7 @@ const Span = styled.span`
 const Div = styled.div`
     ${props => props.lists && css `
         @media (min-width: 992px) {
-            width: 45%;
+            width: 160px;
             display: flex;
             justify-content: center;
             max-height: 40vh;
@@ -34,7 +34,7 @@ const Ul = styled.ul`
 const Li = styled.li`
     background-color: rgba(255,255,255,0.85);
     border-radius: 50px;
-    padding: 5px 20px;
+    padding: 5px 15px;
     color: rgba(0,0,0, 0.7);
     margin: 10px 0;
     cursor: pointer;
@@ -43,11 +43,11 @@ const Li = styled.li`
 
 class Navigation extends Component {
     state = {
-        currentSelectedList: ''
+        currentSelectedList: this.props.loggedUser.username && this.props.loggedUser.lists[0]
     }
 
     // Need to send selected list to Redux - So i can display the current selected list on the page
-    // I need to render this information is User Page, so it can't come from the Navigation component. Unless I lift the state up, but that's no the point, right?
+    // I need to render this information in User Page, so it can't come from the Navigation component. Unless I lift the state up, but that's not the point, right?
 
     handleSelectedList = (id) => {
         const filtered = this.props.loggedUser.lists.filter(list => list._id === id);
@@ -55,7 +55,9 @@ class Navigation extends Component {
 
         this.setState({
             currentSelectedList: filtered[0]
-        })
+        });
+
+        this.props.selectedList(filtered[0]);
     }
 
     render(){
@@ -107,7 +109,7 @@ class Navigation extends Component {
                                     <Div lists>
                                         <Ul>
                                             {this.props.loggedUser.lists.map(list => {
-                                                return <Li><ListName color={list.color} listName={list.listName} /></Li>
+                                                return <Li onClick={() => this.handleSelectedList(list._id)}><ListName color={list.color} listName={list.listName} /></Li>
                                             })}
                                         </Ul>
                                     </Div>
