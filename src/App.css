@@ -157,6 +157,41 @@ ul{
   margin-top: 10px;
 }
 
+.auth-form{
+  /* background-color: tomato; */
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.auth-form input{
+  /* background-color: tomato; */
+  margin-bottom: 20px;
+  padding: 5px;
+  font-size: 0.9em;
+}
+
+.btn-auth{
+  width: 30%;
+  font-size: 0.8em;
+  color: rgba(0,0,0,0.5);
+  align-self: center;
+  background-color: transparent;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 8px;
+  /* margin-top: 20px; */
+}
+
+.btn-auth:hover{
+  background-color:rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.5);
+  color: white;
+  text-decoration: none;
+}
+
 
 
 /* MEDIA QUERIES */

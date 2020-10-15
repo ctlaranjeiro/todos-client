@@ -36,11 +36,12 @@ class LoginPage extends Component{
             <div className="main-container">
                 <Navigation />
                 <div className="content-container flex-column">
-                    <h1>Login Page</h1>
-                    <form onSubmit={this.handleFormSubmit}>
+                    <h1>Hey you!</h1>
+                    <p>Welcome back!</p>
+                    <form className="auth-form" onSubmit={this.handleFormSubmit}>
                         <input name="username" type='text' placeholder="username" value={this.state.username} onChange={this.handleChange} />
                         <input name="password" type='password' placeholder="password" value={this.state.password} onChange={this.handleChange} />
-                        <input type="submit" value="Login" />
+                        <input className="btn-auth" type="submit" value="Login" />
                     </form>
                 </div>
             </div>

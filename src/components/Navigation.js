@@ -66,7 +66,7 @@ class Navigation extends Component {
                 <div>
                     <div className="top-nav">
                         <Navbar className="navbar-bg sideNav d-lg-block" collapseOnSelect expand="lg" variant="dark">
-                            <Navbar.Brand href="/">| TodoIt</Navbar.Brand>      
+                            <Link to="/"><Navbar.Brand >| TodoIt</Navbar.Brand></Link>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" /> 
                             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
                                 <div className="d-flex flex-column align-items-center top-nav-style">
@@ -82,7 +82,7 @@ class Navigation extends Component {
                         </Navbar>
                     </div>
                     <div className="sideNav sideNav-info">
-                        <Span><a className="logo-link" href="/">| TodoIt</a></Span>
+                        <Span><Link className="logo-link" to="/">| TodoIt</Link></Span>
                         <div className="d-flex flex-column align-items-center links">
                             <span className="greeting mb-3">Welcome!</span>
                             <p>Want to access full features, like saving tasks and creating lists?</p>
@@ -100,7 +100,7 @@ class Navigation extends Component {
                 <div>
                     <div className="top-nav">
                         <Navbar className="navbar-bg sideNav d-lg-block" collapseOnSelect expand="lg" variant="dark">
-                            <Navbar.Brand href="/">| TodoIt</Navbar.Brand>
+                        <Link to="/"><Navbar.Brand >| TodoIt</Navbar.Brand></Link>
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" /> 
                             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
                                 <div className="d-flex flex-column align-items-center top-nav-style">
@@ -119,7 +119,7 @@ class Navigation extends Component {
                         </Navbar>
                     </div>
                     <div className="sideNav sideNav-info">
-                        <Span><a className="logo-link" href="/">| TodoIt</a></Span>
+                    <Span><Link className="logo-link" to="/">| TodoIt</Link></Span>
                         <div className="d-flex flex-column align-items-center links">
                             <UserWelcome profilePicture={this.props.loggedUser.profilePicture} username={this.props.loggedUser.username} />
                             <h6>My lists</h6>
